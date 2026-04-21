@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Voice Assistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- Animated background grid -->
+  <div class="bg-grid"></div>
+  <div class="bg-glow"></div>
+
+  <div class="container">
+
+    <!-- ── HEADER ── -->
+    <header class="header">
+      <div class="header-icon">⬡</div>
+      <div>
+        <h1>MN<span class="accent">AI</span></h1>
+        <p class="subtitle">Voice · Math · Knowledge · Assistant</p>
+      </div>
+      <div class="status-dot" id="statusDot" title="Ready"></div>
+    </header>
+
+    <!-- ── INPUT SECTION ── -->
+    <section class="input-card">
+      <div class="input-row">
+        <input
+          type="text"
+          id="textInput"
+          placeholder='Ask anything: "Newton first law" or "add 45 and 27"'
+          autocomplete="off"
+        />
+        <button id="sendBtn" class="btn-send" title="Send">
+          <span>⏎</span>
+        </button>
+        <button id="micBtn" class="btn-mic" title="Voice Input">
+          <span id="micIcon">🎤</span>
+        </button>
+      </div>
+      <div id="micStatus" class="mic-status hidden">
+        <span class="pulse-dot"></span> Listening… speak now
+      </div>
+
+      <!-- Quick example chips — click to try -->
+      <div class="chips">
+        <span class="chip" onclick="tryExample(this)">Newton first law</span>
+        <span class="chip" onclick="tryExample(this)">What is photosynthesis</span>
+        <span class="chip" onclick="tryExample(this)">Add 25 and 38</span>
+        <span class="chip" onclick="tryExample(this)">Who is Einstein</span>
+        <span class="chip" onclick="tryExample(this)">What is gravity</span>
+        <span class="chip" onclick="tryExample(this)">Power of 2 and 10</span>
+      </div>
+    </section>
+
+    <!-- ── OUTPUT SECTION ── -->
+    <section class="output-card" id="outputCard">
+
+      <!-- Loading state -->
+      <div id="loader" class="loader hidden">
+        <div class="loader-bars">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <p id="loaderText">Processing…</p>
+      </div>
+
+      <!-- Empty state -->
+      <div id="emptyState" class="empty-state">
+        <div class="empty-icon">◎</div>
+        <p>Ask me anything using voice or text</p>
+      </div>
+
+      <!-- Result content -->
+      <div id="outputContent" class="output-content hidden">
+
+        <!-- What you asked -->
+        <div class="query-label">
+          <span class="label-tag" id="intentTag">●</span>
+          <span id="recognizedText">—</span>
+        </div>
+
+        <!-- Text answer -->
+        <div id="textOutput" class="text-output"></div>
+
+        <!-- Image result -->
+        <div id="imageOutput" class="image-output hidden">
+          <img id="outputImage" src="" alt="Topic image"/>
+          <p id="imageCaption" class="image-caption"></p>
+        </div>
+
+        <!-- Video result -->
+        <div id="videoOutput" class="video-output hidden">
+          <div class="video-wrapper">
+            <iframe
+              id="outputVideo"
+              src=""
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <p class="video-label">📹 Related Video</p>
+        </div>
+
+        <!-- Action buttons -->
+        <div class="action-row">
+          <button id="speakBtn" class="btn-action">🔊 Speak</button>
+          <button id="copyBtn" class="btn-action">📋 Copy</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── HISTORY SECTION ── -->
+    <section class="history-card">
+      <div class="history-header">
+        <h3>⟨ History ⟩</h3>
+        <button id="clearBtn" class="btn-clear">Clear All</button>
+      </div>
+      <ul id="historyList" class="history-list">
+        <!-- Items injected by JS -->
+      </ul>
+      <p id="emptyHistory" class="empty-history">No history yet. Start asking!</p>
+    </section>
+
+  </div><!-- /container -->
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -417,7 +417,8 @@ const LOCAL_KB = {
 
   'dna':
     "DNA (Deoxyribonucleic Acid) is the molecule that carries the genetic instructions for all living organisms. It is a double helix structure made of four bases: Adenine, Thymine, Guanine, and Cytosine. DNA is found in the nucleus of every cell and determines inherited traits.",
-
+   'prasath':
+      "prasath is a play boy without girlfriend....
   'black hole':
     "A black hole is a region of space where gravity is so strong that nothing, not even light, can escape from it. They form when massive stars collapse at the end of their life. The boundary around a black hole is called the event horizon.",
 

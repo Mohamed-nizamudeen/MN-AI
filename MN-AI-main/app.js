@@ -7,7 +7,7 @@ const CONFIG = {
   SPEECH_LANG: 'en-US',
   MAX_HISTORY: 60,
   // We now point to our own backend proxy server instead of Groq directly
-  BACKEND_URL: 'http://localhost:3000/api/chat',
+  BACKEND_URL: '/api/chat',
 };
 
 // ── VIDEO DATABASE ────────────────────────────────────────────────
